@@ -2,13 +2,8 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateTaskInput = {
-  id?: string | null,
-  title: string,
-  description?: string | null,
-  status?: string | null,
-  createdAt?: string | null,
-  updatedAt?: string | null,
+export type DeleteTaskInput = {
+  id: string,
 };
 
 export type ModelTaskConditionInput = {
@@ -67,7 +62,16 @@ export type Task = {
   id: string,
   title: string,
   description?: string | null,
-  status?: string | null,
+  status: string,
+  createdAt?: string | null,
+  updatedAt?: string | null,
+};
+
+export type CreateTaskInput = {
+  id?: string | null,
+  title: string,
+  description?: string | null,
+  status: string,
   createdAt?: string | null,
   updatedAt?: string | null,
 };
@@ -79,10 +83,6 @@ export type UpdateTaskInput = {
   status?: string | null,
   createdAt?: string | null,
   updatedAt?: string | null,
-};
-
-export type DeleteTaskInput = {
-  id: string,
 };
 
 export type ModelTaskFilterInput = {
@@ -160,6 +160,23 @@ export type ModelSubscriptionStringInput = {
   notIn?: Array< string | null > | null,
 };
 
+export type DeleteTaskMutationVariables = {
+  input: DeleteTaskInput,
+  condition?: ModelTaskConditionInput | null,
+};
+
+export type DeleteTaskMutation = {
+  deleteTask?:  {
+    __typename: "Task",
+    id: string,
+    title: string,
+    description?: string | null,
+    status: string,
+    createdAt?: string | null,
+    updatedAt?: string | null,
+  } | null,
+};
+
 export type CreateTaskMutationVariables = {
   input: CreateTaskInput,
   condition?: ModelTaskConditionInput | null,
@@ -171,7 +188,7 @@ export type CreateTaskMutation = {
     id: string,
     title: string,
     description?: string | null,
-    status?: string | null,
+    status: string,
     createdAt?: string | null,
     updatedAt?: string | null,
   } | null,
@@ -188,24 +205,7 @@ export type UpdateTaskMutation = {
     id: string,
     title: string,
     description?: string | null,
-    status?: string | null,
-    createdAt?: string | null,
-    updatedAt?: string | null,
-  } | null,
-};
-
-export type DeleteTaskMutationVariables = {
-  input: DeleteTaskInput,
-  condition?: ModelTaskConditionInput | null,
-};
-
-export type DeleteTaskMutation = {
-  deleteTask?:  {
-    __typename: "Task",
-    id: string,
-    title: string,
-    description?: string | null,
-    status?: string | null,
+    status: string,
     createdAt?: string | null,
     updatedAt?: string | null,
   } | null,
@@ -221,7 +221,7 @@ export type GetTaskQuery = {
     id: string,
     title: string,
     description?: string | null,
-    status?: string | null,
+    status: string,
     createdAt?: string | null,
     updatedAt?: string | null,
   } | null,
@@ -241,7 +241,7 @@ export type ListTasksQuery = {
       id: string,
       title: string,
       description?: string | null,
-      status?: string | null,
+      status: string,
       createdAt?: string | null,
       updatedAt?: string | null,
     } | null >,
@@ -259,7 +259,7 @@ export type OnCreateTaskSubscription = {
     id: string,
     title: string,
     description?: string | null,
-    status?: string | null,
+    status: string,
     createdAt?: string | null,
     updatedAt?: string | null,
   } | null,
@@ -275,7 +275,7 @@ export type OnUpdateTaskSubscription = {
     id: string,
     title: string,
     description?: string | null,
-    status?: string | null,
+    status: string,
     createdAt?: string | null,
     updatedAt?: string | null,
   } | null,
@@ -291,7 +291,7 @@ export type OnDeleteTaskSubscription = {
     id: string,
     title: string,
     description?: string | null,
-    status?: string | null,
+    status: string,
     createdAt?: string | null,
     updatedAt?: string | null,
   } | null,

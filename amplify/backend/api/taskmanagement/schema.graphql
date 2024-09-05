@@ -2,7 +2,13 @@
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
 input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
-type Task @model {
+type Task @model
+  @auth(
+      rules: [
+        { allow: public, ownerField: "username", operations: [read] }
+        { allow: groups, groups: ["Admin"], operations: [create, update, read] }
+      ]
+    )  {
   id: ID!
   title: String!
   description: String

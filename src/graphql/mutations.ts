@@ -8,6 +8,24 @@ type GeneratedMutation<InputType, OutputType> = string & {
   __generatedMutationOutput: OutputType;
 };
 
+export const deleteTask = /* GraphQL */ `mutation DeleteTask(
+  $input: DeleteTaskInput!
+  $condition: ModelTaskConditionInput
+) {
+  deleteTask(input: $input, condition: $condition) {
+    id
+    title
+    description
+    status
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteTaskMutationVariables,
+  APITypes.DeleteTaskMutation
+>;
 export const createTask = /* GraphQL */ `mutation CreateTask(
   $input: CreateTaskInput!
   $condition: ModelTaskConditionInput
@@ -43,22 +61,4 @@ export const updateTask = /* GraphQL */ `mutation UpdateTask(
 ` as GeneratedMutation<
   APITypes.UpdateTaskMutationVariables,
   APITypes.UpdateTaskMutation
->;
-export const deleteTask = /* GraphQL */ `mutation DeleteTask(
-  $input: DeleteTaskInput!
-  $condition: ModelTaskConditionInput
-) {
-  deleteTask(input: $input, condition: $condition) {
-    id
-    title
-    description
-    status
-    createdAt
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.DeleteTaskMutationVariables,
-  APITypes.DeleteTaskMutation
 >;
